@@ -1,22 +1,27 @@
-=== WordPress Reset ===
+=== WP Database Reset ===
 Contributors: aristath, sivel
 Donate Link: http://aristath.github.io/donate
-Tags: wordpress-reset, wordpress, reset, admin
-Requires at least: 2.8
+Tags: wordpress-reset, reset, admin
+Requires at least: 6.2
 Tested up to: 6.8
-Stable tag: 1.4.3
+Stable tag: 1.5.0
+License: GPLv2 or later
+License URI: http://gnu.org/licenses/gpl2.html
 
-Resets the WordPress database back to it's defaults. Deletes all customizations and content. Does not modify files only resets the database.
+
+Resets the WordPress database back to its defaults. Deletes all customizations and content. Does not modify files only resets the database.
 
 == Description ==
 
-Resets the WordPress database back to it's defaults. Deletes all customizations and content. Does not modify files only resets the database.
+Resets the WordPress database back to its defaults. Deletes all customizations and content. Does not modify files only resets the database.
 
 This plugin is very helpful for plugin and theme developers.
 
 If the admin user exists and has level_10 permissions it will be recreated with its current password and email address. If the admin user does not exist or is a dummy account without admin permissions the username that is logged in will be recreated with its email address and current password. The blog name is also kept.
 
 The plugin will add an entry to the Admin Bar under the site title and has the ability to reactivate itself and other plugins after the reset.
+
+**Database Compatibility:** This plugin supports both MySQL/MariaDB and SQLite databases. For SQLite installations, the reset process will delete the database file and redirect you to the WordPress installation screen.
 
 == Installation ==
 
@@ -40,6 +45,10 @@ $reactivate_wp_reset_additional = array(
 );
 `
 
+= Does this plugin work with SQLite databases? =
+
+Yes! For SQLite databases, the plugin will delete the database file and redirect you to the WordPress installation screen. This means you'll need to set up WordPress from scratch after the reset, unlike MySQL/MariaDB installations where your admin user is automatically recreated.
+
 == Upgrade ==
 
 1. Use the plugin updater in WordPress or...
@@ -52,6 +61,9 @@ $reactivate_wp_reset_additional = array(
 1. Type 'reset' in the text field and click reset.
 
 == Upgrade Notice ==
+
+= 1.5.0 =
+Major update with SQLite database support, improved security, code modernization, and updated minimum requirements (WordPress 6.2+, PHP 7.4+)
 
 = 1.3.3 =
 Fix an issue where a user does not have a user_level
@@ -67,6 +79,15 @@ Fix sql query, so that _ isn't being used as a single character match
 Fixes a deprecated notice in WordPress 3.3, removed the $auto_reactivate variable, and look for REACTIVATE_WP_RESET to be defined in wp-config.php, as well as the ability to activate additional plugins using a global $reactivate_wp_reset_additional array defined in wp-config.php
 
 == Changelog ==
+
+= 1.5.0 (2025-01-17): =
+* Added full SQLite database compatibility including support for SQLite Database Integration plugin
+* Modernized code to meet WordPress Coding Standards
+* Added comprehensive PHPUnit test coverage
+* Improved input sanitization and output escaping
+* Refactored JavaScript to vanilla JS (removed jQuery dependency)
+* Enhanced error handling with try-catch blocks
+* Updated minimum requirements: WordPress 6.2+, PHP 7.4+
 
 = 1.4 =
 January 19, 2016

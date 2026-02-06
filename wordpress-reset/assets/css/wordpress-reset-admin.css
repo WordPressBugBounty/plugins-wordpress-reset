@@ -1,0 +1,17 @@
+/**
+ * WordPress Reset - Admin Styles
+ *
+ * @package wordpress-reset
+ */
+
+.wpre-plugin-list {
+	list-style-type: disc;
+
+	& li {
+		margin: 5px 0 0 30px;
+	}
+}
+
+.wpre-reset-button {
+	width: 80px;
+}
